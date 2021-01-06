@@ -1,91 +1,74 @@
-<!--
-@copyright(disclaimer)
+== REST Services Sample Readme
+'''
 
- DISCLAIMER OF WARRANTIES.                                                  
-
- The following IBM Content Manager Enterprise Edition code is sample code   
- created by IBM Corporation. IBM grants you a nonexclusive copyright        
- license to use this sample code example to generate similar function       
- tailored to your own specific needs. This sample code is not part of any   
- standard IBM product and is provided to you solely for the purpose of      
- assisting you in the development of your applications. This example has    
- not been thoroughly tested under all conditions. IBM, therefore cannot     
- guarantee nor may you imply reliability, serviceability, or function of    
- these programs. The code is provided "AS IS", without warranty of any      
- kind. IBM shall not be liable for any damages arising out of your or any   
- other parties use of the sample code, even if IBM has been advised of the  
- possibility of such damages. If you do not agree with these terms, do not  
- use the sample code.                                                       
-
- Licensed Materials - Property of IBM                                       
- 5724-B19 / 5697-H60                                                        
- � Copyright IBM Corp. 1994, 2011 All Rights Reserved.                      
- US Government Users Restricted Rights - Use, duplication or disclosure     
- restricted by GSA ADP Schedule Contract with IBM Corp.                     
-
-@endCopyright
--->
-
-## REST Services Sample Readme
------
 This guide walks you through building and running the REST services sample.  A Java sample is provided using a default ClientBuilder to make calls to a container or server running the REST Services.
 
-### Sample Program to build and run
+=== Sample Program to build and run
 SRestClient.java : A java sample client using javax.ws.rs.client.ClientBuilder
 
 Default values may be programmatically changed in the source file or by setting the environment.
 
-These settings are used to build the URI where REST services are running:
-- PORT
-- HOSTNAME
+Settings used to build the URI where REST services are running::
+* PORT
+* HOSTNAME
 
-These settings are used to authenticate to Content Manager Repository using the login API
-- SERVERNAME
-- USERNAME
-- PASSWORD
+Settings used to authenticate to Content Manager Repository using the login API::
+* SERVERNAME
+* USERNAME
+* PASSWORD
 
-This setting is used to locate the directory containing content file resources
-- TESTDOCS_URI
+Setting used to locate the directory containing content file resources::
+* TESTDOCS_URI
 
-By default only ping test is run.  You may enable other tests by changing:
-- testItemtypes : run endpoint tests for item type APIs
-- testQuery: run endpoint test for item query API
-- testCRUD: run endpoint tests to create, retrieve, update and delete item APIs
+Enable other tests by changing::
+* testItemtypes : run endpoint for item type APIs
+* testQuery: run endpoint for item query API
+* testCRUD: run endpoints to create, retrieve, update and delete item APIs
 
-### Dependencies
+NOTE: By default only ping test is run.
+
+=== Dependencies
 To compile the sample client, you must have the following JAR files:
-- CM Rest classes to programmatically build JSON objects to use with the CM Rest endpoints :
->  cmrmodel.jar
 
--	Java EE that includes JAX-RS :
->	 api group: 'javax', name: 'javaee-api', version: '8.0.1'
+* CM Rest classes to programmatically build JSON objects to use with the CM Rest endpoints
+----
+cmrmodel.jar
+----
+* Java EE that includes JAX-RS
+----
+api group: 'javax', name: 'javaee-api', version: '8.0.1'
+----
 
--	Jersey Client 2.x libraries to handle requests and responses :
->	 api group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.29.1'
->	 api group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '2.29.1'
->	 api group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.29.1'
->	 api group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.29.1'
->	 api group: 'org.glassfish.jersey.media', name: 'jersey-media-json-binding', version: '2.29.1'
->	 api group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b11'
+* Jersey Client 2.x libraries to handle requests and responses
+----
+api group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.29.1'
+api group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '2.29.1'
+api group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.29.1'
+api group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.29.1'
+api group: 'org.glassfish.jersey.media', name: 'jersey-media-json-binding', version: '2.29.1'
+api group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b11'
+----
 
-### Build
-- javac -> create class file
+=== Build
+* javac: create class file
 
-### Run
-- java SRestClient
+=== Run
+* java SRestClient
 
-### Sample Console Output
-	***** GET /ping:  *****
-	{
-  		"cmconnectionpool.properties.resource" : "file:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides/cmgmt/cmbconnectionpool.properties",
-  		"status" : "started",
-  		"cmrest.properties.resource" : "file:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides/cmgmt/cmrestservices.properties",
-  		"CMCFGDIR" : "/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides/cmgmt/connectors",
-  		"java.runtime.version" : "8.0.6.16 - pxa6480sr6fp16-20200902_01(SR6 FP16)",
-  		"os.name" : "Linux",
-  		"version" : "8.7.00.000.381 - 2020-12-23 06:25:17:017 PST",
-  		"tokenDuration" : "480",
-  		"enableConnectionPool" : "false",
-  		"CMWorkingDirectory" : "/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides",
-  		"cmbcmenv.properties.resource" : "file:/opt/ibm/wlp/usr/servers/defaultServer/apps/expanded/cm8app.war/WEB-INF/classes/cmbcmenv.properties"
-	}
+=== Sample Console Output
+....
+***** GET /ping:  *****
+{
+  	"cmconnectionpool.properties.resource" : "file:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides/cmgmt/cmbconnectionpool.properties",
+  	"status" : "started",
+  	"cmrest.properties.resource" : "file:/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides/cmgmt/cmrestservices.properties",
+  	"CMCFGDIR" : "/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides/cmgmt/connectors",
+  	"java.runtime.version" : "8.0.6.16 - pxa6480sr6fp16-20200902_01(SR6 FP16)",
+  	"os.name" : "Linux",
+  	"version" : "8.7.00.000.381 - 2020-12-23 06:25:17:017 PST",
+  	"tokenDuration" : "480",
+  	"enableConnectionPool" : "false",
+  	"CMWorkingDirectory" : "/opt/ibm/wlp/usr/servers/defaultServer/configDropins/overrides",
+  	"cmbcmenv.properties.resource" : "file:/opt/ibm/wlp/usr/servers/defaultServer/apps/expanded/cm8app.war/WEB-INF/classes/cmbcmenv.properties"
+}
+....
